@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Cart from "./components/Cart.tsx";
+import ProductCard from "./components/ProductCard.tsx";
+import { CartProvider, useCart } from "./context/cartContext.jsx";
+import data from "./mocks/data.json";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CartProvider>
+        <header className="App-header">
+          <p>Carrito</p>
+          <Cart />
+        </header>
+        <div className="content">
+          {data.map((p) => {
+            return <ProductCard product={p} key={p.id} />;
+          })}
+        </div>
+      </CartProvider>
     </div>
   );
 }

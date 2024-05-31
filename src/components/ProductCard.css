@@ -1,0 +1,16 @@
+.productCard {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid gold;
+  background-color: rgba(223, 223, 223, 0.508);
+  border-radius: 16px;
+  gap: 8px;
+  text-align: start;
+}
+.productImage {
+  height: 200px;
+  width: 200px;
+  border-radius: 8px;
+  align-self: center;
+}
