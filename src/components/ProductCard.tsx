@@ -2,6 +2,8 @@ import React from "react";
 import { useCart } from "../context/cartContext.jsx";
 import "./ProductCard.css";
 import { IoMdAdd } from "react-icons/io";
+import { MdDelete } from "react-icons/md";
+import { FaStar } from "react-icons/fa";
 
 export default function ProductCard({ product }) {
   const { cart, addToCart, deleteFromCart } = useCart();
@@ -14,29 +16,31 @@ export default function ProductCard({ product }) {
         src={product.image}
         alt={`image of product ${product.title}`}
       />
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: 12,
-          alignItems: "center",
-          justifyContent: "flex-end",
-        }}
-      >
-        <span>
-          {product.title} - {product.price} - {product.rating.rate}
+      <div className="cardContent">
+        <span className="title">{product.title}</span>
+        <span className="rating">
+          {product.rating.rate} <FaStar color="gold" />
         </span>
-        <span> {product.category}</span>
-        <span> {product.description}</span>
-        <button
-          style={{ borderRadius: 99, height: 40, width: 40 }}
-          onClick={() => addToCart(product)}
-        >
-          <IoMdAdd size={20} />
-        </button>
-        {inCart && (
-          <button onClick={() => deleteFromCart(product)}>eliminar</button>
-        )}
+        <div className="descriptionContent">
+          <span className="description"> {product.description}</span>
+        </div>
+        <span className="price">{product.price}$</span>
+        <div className="cardBottom">
+          <button className="button" onClick={() => addToCart(product)}>
+            <IoMdAdd size={17} />
+          </button>
+          {inCart && (
+            <>
+              <span>In cart: {inCart.quantity}</span>
+              <button
+                className="button"
+                onClick={() => deleteFromCart(product)}
+              >
+                <MdDelete size={17} />
+              </button>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
