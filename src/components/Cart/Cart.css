@@ -1,0 +1,11 @@
+.cartContainer {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 280px;
+  border-radius: 8px;
+  padding-top: 16px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.818);
+  height: 100%;
+}

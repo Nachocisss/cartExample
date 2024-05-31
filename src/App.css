@@ -4,6 +4,9 @@
 body {
   background-color: #282c34;
 }
+.AppContainer {
+  position: relative;
+}
 .App-header {
   background-color: #282c34;
   display: flex;
